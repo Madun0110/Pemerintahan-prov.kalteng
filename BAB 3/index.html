@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('https://serverinsip.net/wp-content/uploads/2020/09/kalteng.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .welcome-container {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .enter-btn, .register-btn {
+            padding: 15px 30px;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .enter-btn {
+            background-color: #ff4081;
+        }
+
+        .enter-btn:hover {
+            background-color: #e91e63;
+        }
+
+        .register-btn {
+            background-color: #4caf50;
+        }
+
+        .register-btn:hover {
+            background-color: #45a049;
+        }
+
+        .register-container {
+            display: none; /* Initially hide the registration form */
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .register-container input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .register-container input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+        }
+
+        .register-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .account-check {
+            margin-top: 20px;
+        }
+
+        .account-check a {
+            color: #4caf50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .account-check a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Selamat Datang di Kalteng</h1>
+        <p>Provinsi Kalimantan Tengah: Media Terdepan dalam Publikasi dan Dokumentasi</p>
+        <button class="enter-btn" onclick="checkRegistration()">Masuk ke Situs</button>
+        <br>
+        <button class="register-btn" onclick="toggleRegisterForm()">Daftar</button>
+
+        <div class="register-container" id="registerForm">
+            <h2>Form Registrasi</h2>
+            <form id="registration" onsubmit="return handleRegistration(event)">
+                <input type="text" name="name" placeholder="Nama Lengkap" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="submit" value="Daftar">
+            </form>
+        </div>
+
+        <div class="account-check">
+            <p>Sudah memiliki akun? <a href="login.html">Masuk di sini</a></p> <!-- Tautan ke halaman login -->
+        </div>
+    </div>
+
+    <script>
+        let isRegistered = false; // Flag to check registration status
+
+        function toggleRegisterForm() {
+            const registerForm = document.getElementById('registerForm');
+            if (registerForm.style.display === 'none' || registerForm.style.display === '') {
+                registerForm.style.display = 'block';
+            } else {
+                registerForm.style.display = 'none';
+            }
+        }
+
+        function handleRegistration(event) {
+            event.preventDefault(); // Prevent the default form submission
+            isRegistered = true; // Set registration status to true
+            alert("Registrasi Berhasil!"); // Show success message
+            document.getElementById('registration').reset(); // Reset the form
+            document.getElementById('registerForm').style.display = 'none'; // Hide the form
+        }
+
+        function checkRegistration() {
+            if (!isRegistered) {
+                alert("Anda harus mendaftar terlebih dahulu sebelum masuk.");
+            } else {
+                window.location.href = "Dasboard.html"; // Ganti dengan halaman tujuan Anda
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: url("https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcTLgDhfpzhIINsg_qKgKBt0i91QvbhaITwsnmw7wpK6yKH0zEp9wuTKKfPsv8MqRnnBnqRCIOCoLKbOZckP8vpBpdvO0F-othq0hBJrFA") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 77px 0;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0% 20% 20% 0%;
+}
+
+.img-in {
+  width: 50%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.box {
+  width: 300px;
+  position: relative;
+  padding: 90px;
+  background: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  border-radius: 20% 0% 0% 20%;
+}
+
+.box h1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(82, 82, 82);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.box input[type="text"],
+.box input[type="password"] {
+  border: 0;
+  background-color: rgb(255, 255, 255);
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 1px solid #066cc062;
+  padding: 19px 15px;
+  width: 200px;
+  outline: none;
+  color: rgb(0, 0, 0);
+  border-radius: 24px;
+  transition: width 0.4s ease-in-out, border-color 0.4s ease-in-out;
+}
+
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+  width: 280px;
+  border-color: #00b3ff;
+}
+
+.box input::placeholder {
+  color: #666;
+  transition: none;
+}
+
+.box input[type="submit"] {
+  border: 0;
+  background-color: rgba(255, 255, 255, 0.688);
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 1px solid #009dff75;
+  padding: 14px 40px;
+  outline: none;
+  color: rgb(115, 114, 114);
+  border-radius: 24px;
+  transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out;
+  cursor: pointer;
+}
+
+.box input[type="submit"]:hover {
+  background: #0a99e0b0;
+  transform: scale(1.05);
+}
+
+.input-container {
+  position: relative;
+  width: 280px;
+  margin: 20px auto;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #666;
+  display: none;
+}
+
+.toggle-password i {
+  font-size: 18px;
+}
+
+.input-container input[type="password"]:focus+.toggle-password,
+.input-container input[type="text"]:focus+.toggle-password {
+  display: block;
+}
+
+/* Snackbar CSS */
+#snackbar {
+  visibility: hidden;
+  min-width: 300px;
+  background-color: #4CAF50;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  transform: translateX(-50%);
+  font-size: 17px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.5s, bottom 0.5s;
+}
+
+#snackbar.show {
+  visibility: visible;
+  opacity: 1;
+  bottom: 50px;
+}
+
+.snackbar-icon {
+  margin-right: 10px;
+}

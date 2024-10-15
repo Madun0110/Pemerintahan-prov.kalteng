@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/register.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <h1>REGISTER</h1>
+        <input type="text" id="taskInput" placeholder="Nama...">
+        <input type="date" id="deadlineInput" placeholder="Tanggal Lahir">
+        <select id="priorityInput">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Outher">Outher</option>
+        </select>
+        <input type="text" id="categoryInput" placeholder="Email...">
+        <input type="text" id="notesInput" placeholder="Code Verifikasi(Opsional)...">
+        <button id="addTaskButton">Submit</button>
+        <select id="statusInput">
+            <option value="Akun Baru">Akun Baru</option>
+            <option value="Sudah Ada akun">Sudah ada akun</option>
+        </select>
+        <ul id="taskList"></ul>
+    </div>
+
+    <script>
+        // Mengambil elemen yang diperlukan dari DOM
+        const taskInput = document.getElementById('taskInput');
+        const deadlineInput = document.getElementById('deadlineInput');
+        const priorityInput = document.getElementById('priorityInput');
+        const categoryInput = document.getElementById('categoryInput');
+        const statusInput = document.getElementById('statusInput');
+        const notesInput = document.getElementById('notesInput');
+        const addTaskButton = document.getElementById('addTaskButton');
+        const taskList = document.getElementById('taskList');
+
+        // Fungsi untuk menambahkan tugas baru dengan 5 kolom tambahan
+        function addTask() {
+            const taskText = taskInput.value;
+            const deadline = deadlineInput.value;
+            const priority = priorityInput.value;
+            const category = categoryInput.value;
+            const status = statusInput.value;
+            const notes = notesInput.value;
+
+            // Validasi input tugas
+            if (taskText === "") {
+                alert("Data tidak boleh kosong!");
+                return;
+            }
+
+            // Membuat elemen li untuk tugas baru
+            const li = document.createElement('li');
+
+            // Menambahkan kolom-kolom tambahan ke dalam li
+            li.innerHTML = `
+                <span class="task-details"><strong>Nama:</strong> ${taskText}</span>
+                <span class="task-details"><strong>Tanggal Lahir:</strong> ${deadline || "Tidak ada "}</span>
+                <span class="task-details"><strong>Gender:</strong> ${priority || "Tidak ditentukan"}</span>
+                <span class="task-details"><strong>Email:</strong> ${category || "Tidak ada email"}</span>
+                <span class="task-details"><strong>Akun Baru:</strong> ${status}</span>
+                <span class="task-details"><strong>Code Verifikasi:</strong> ${notes || "Sudah Ada akun"}</span>
+            `;
+
+            // Membuat tombol hapus
+            const deleteButton = document.createElement('button');
+            deleteButton.innerText = 'Hapus';
+            deleteButton.addEventListener('click', function() {
+                taskList.removeChild(li);
+            });
+
+            // Menambahkan tombol hapus ke elemen li
+            li.appendChild(deleteButton);
+
+            // Menambahkan elemen li ke dalam ul (taskList)
+            taskList.appendChild(li);
+
+            // Mengosongkan input setelah tugas ditambahkan
+            taskInput.value = "";
+            deadlineInput.value = "";
+            priorityInput.value = "";
+            categoryInput.value = "";
+            statusInput.value = "Belum Selesai";
+            notesInput.value = "";
+        }
+
+        // Event listener untuk tombol tambah tugas
+        addTaskButton.addEventListener('click', addTask);
+
+        // Event listener untuk input field agar bisa menekan "Enter" untuk menambah tugas
+        taskInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                addTask();
+            }
+        });
+    </script>
+</body>
+</html>

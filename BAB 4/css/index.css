@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('https://serverinsip.net/wp-content/uploads/2020/09/kalteng.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+.welcome-container {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+.enter-btn, .register-btn {
+    padding: 15px 30px;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 0;
+}
+.enter-btn {
+    background-color: #ff4081;
+}
+.enter-btn:hover {
+    background-color: #e91e63;
+}
+
+.register-btn {
+    background-color: #4caf50;
+}
+.register-btn:hover {
+    background-color: #45a049;
+}
+.register-container {
+    display: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.register-container input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.register-container input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+.register-container input[type="submit"]:hover {
+    background-color: #45a049;
+}
+.account-check {
+    margin-top: 20px;
+}
+.account-check a {
+    color: #4caf50;
+    text-decoration: none;
+    font-weight: bold;
+}
+.account-check a:hover {
+    text-decoration: underline;
+}
